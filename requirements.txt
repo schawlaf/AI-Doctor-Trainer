@@ -1,6 +1,4 @@
-```plaintext
 transformers
 torch
 streamlit
 huggingface_hub
-```
