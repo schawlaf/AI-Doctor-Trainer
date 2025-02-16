@@ -1,4 +1,5 @@
-transformers
-torch
-streamlit
-huggingface_hub
+transformers==4.37.0
+torch==2.1.0+cpu --index-url https://download.pytorch.org/whl/cpu
+huggingface_hub==0.20.1
+streamlit==1.30.0
+tokenizers==0.15.1
