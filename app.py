@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
 
 # Load Mistral 7B Model
 model = AutoModelForCausalLM.from_pretrained('mistralai/Mistral-7B-v0.1')
@@ -21,7 +22,8 @@ questions = [
 # Function to get AI-generated response
 def get_mistral_response(prompt):
     inputs = tokenizer(prompt, return_tensors="pt")
-    outputs = model.generate(**inputs, max_length=150)
+    with torch.no_grad():
+        outputs = model.generate(inputs, max_length=150)
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 # Random Question Generator
